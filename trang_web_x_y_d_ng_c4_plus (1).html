@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C4 PLUS - Thiết Kế & Thi Công Xây Dựng Nhà Phố, Biệt Thự Trọn Gói</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Be Vietnam Pro -->
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            navy: '#0A192F',
+                            slate: '#1E293B',
+                            gold: '#D4AF37',
+                            goldlight: '#F3E5AB',
+                            golddark: '#AA7C11',
+                            accent: '#C59B27',
+                            lightbg: '#F8FAFC'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Be Vietnam Pro"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #F3E5AB 0%, #D4AF37 50%, #AA7C11 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gold-gradient-bg {
+            background: linear-gradient(135deg, #D4AF37 0%, #AA7C11 100%);
+        }
+        .gold-border-glow:focus {
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+        }
+    </style>
+</head>
+<body class="font-sans bg-slate-900 text-slate-100 antialiased selection:bg-brand-gold selection:text-brand-navy">
+
+    <!-- Top Info Bar -->
+    <div class="bg-brand-navy border-b border-slate-800 text-xs sm:text-sm py-2 px-4">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+            <div class="flex flex-wrap items-center justify-center sm:justify-start gap-4 text-slate-300">
+                <span class="flex items-center gap-1.5"><i class="fa-solid fa-location-dot text-brand-gold"></i> VP: 693 Kha Vạn Cân, P. Linh Xuân, TP. Hồ Chí Minh</span>
+                <span class="hidden lg:flex items-center gap-1.5"><i class="fa-solid fa-file-invoice text-brand-gold"></i> MST: 0315795198</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="https://www.facebook.com/xaydungc4plus" target="_blank" rel="noopener noreferrer" class="text-slate-300 hover:text-brand-gold transition flex items-center gap-1.5 text-xs">
+                    <i class="fa-brands fa-facebook text-brand-gold"></i> Fanpage C4 PLUS
+                </a>
+                <span class="text-slate-700">|</span>
+                <a href="tel:0907458567" class="text-brand-gold hover:text-brand-goldlight font-semibold flex items-center gap-1.5">
+                    <i class="fa-solid fa-phone animate-pulse"></i> 090 7458 567
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation Bar -->
+    <header class="sticky top-0 z-50 bg-brand-navy/95 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo & Brand Name -->
+                <a href="#" class="flex items-center space-x-3 group">
+                    <div class="w-12 h-12 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+                        <svg class="w-full h-full text-brand-gold drop-shadow-md" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="50,12 18,32 50,52 82,32" />
+                            <polyline points="18,32 18,52 50,72 82,52 82,32" />
+                            <line x1="50" y1="52" x2="50" y2="72" />
+                            <polygon points="50,40 22,60 50,80 78,60" stroke-opacity="0.6" stroke-width="2.5" />
+                            <line x1="18" y1="52" x2="50" y2="88" stroke-width="3" />
+                            <line x1="82" y1="52" x2="50" y2="88" stroke-width="3" />
+                            <line x1="50" y1="72" x2="50" y2="88" stroke-width="3" />
+                            <circle cx="50" cy="12" r="2" fill="currentColor" />
+                            <circle cx="18" cy="32" r="2" fill="currentColor" />
+                            <circle cx="82" cy="32" r="2" fill="currentColor" />
+                        </svg>
+                    </div>
+                    <div class="flex flex-col justify-center">
+                        <div class="flex items-baseline space-x-1">
+                            <span class="text-2xl sm:text-3xl font-light tracking-wide text-white leading-none font-sans">C4 <span class="font-normal gold-gradient-text">PLUS</span></span>
+                        </div>
+                        <div class="flex items-center space-x-1.5 mt-1">
+                            <span class="text-[9px] sm:text-[10px] tracking-[0.2em] text-slate-300 uppercase font-light">HAPPY SMILE</span>
+                            <span class="w-6 h-[1.5px] bg-brand-gold inline-block"></span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden lg:flex items-center space-x-8 text-sm font-medium">
+                    <a href="#trang-chu" class="text-brand-gold transition">Trang Chủ</a>
+                    <a href="#gioi-thieu" class="hover:text-brand-gold transition text-slate-300">Giới Thiệu</a>
+                    <a href="#dich-vu" class="hover:text-brand-gold transition text-slate-300">Dịch Vụ</a>
+                    <a href="#du-toan" class="hover:text-brand-gold transition text-slate-300 flex items-center gap-1">
+                        <i class="fa-solid fa-calculator text-brand-gold text-xs"></i> Tính Chi Phí
+                    </a>
+                    <a href="#du-an" class="hover:text-brand-gold transition text-slate-300">Dự Án</a>
+                    <a href="#lien-he" class="hover:text-brand-gold transition text-slate-300">Liên Hệ</a>
+                </nav>
+
+                <!-- Action Button -->
+                <div class="hidden sm:flex items-center gap-3">
+                    <a href="https://www.facebook.com/xaydungc4plus" target="_blank" rel="noopener noreferrer" class="p-2.5 rounded-lg bg-slate-800 border border-slate-700 text-brand-gold hover:text-white hover:border-brand-gold transition" title="Fanpage Facebook">
+                        <i class="fa-brands fa-facebook text-lg"></i>
+                    </a>
+                    <a href="#du-toan" class="px-5 py-2.5 rounded-lg gold-gradient-bg text-brand-navy font-bold text-sm shadow-md hover:brightness-110 transition duration-300 flex items-center gap-2">
+                        <i class="fa-solid fa-paper-plane"></i> Nhận Báo Giá
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="lg:hidden flex items-center">
+                    <button id="mobileMenuBtn" class="text-slate-300 hover:text-white focus:outline-none p-2" aria-label="Mở menu">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobileMenu" class="hidden lg:hidden bg-slate-900 border-b border-slate-800 px-4 pt-2 pb-6 space-y-3">
+            <a href="#trang-chu" class="block py-2 text-brand-gold font-medium">Trang Chủ</a>
+            <a href="#gioi-thieu" class="block py-2 text-slate-300 hover:text-brand-gold">Giới Thiệu</a>
+            <a href="#dich-vu" class="block py-2 text-slate-300 hover:text-brand-gold">Dịch Vụ</a>
+            <a href="#du-toan" class="block py-2 text-slate-300 hover:text-brand-gold">Tính Chi Phí Xây Dựng</a>
+            <a href="#du-an" class="block py-2 text-slate-300 hover:text-brand-gold">Dự Án Tiêu Biểu</a>
+            <a href="#lien-he" class="block py-2 text-slate-300 hover:text-brand-gold">Liên Hệ</a>
+            <a href="https://www.facebook.com/xaydungc4plus" target="_blank" rel="noopener noreferrer" class="block py-2 text-slate-300 hover:text-brand-gold"><i class="fa-brands fa-facebook text-brand-gold mr-2"></i> Fanpage Facebook</a>
+            <a href="tel:0907458567" class="w-full text-center py-3 rounded-lg gold-gradient-bg text-brand-navy font-bold block mt-4">
+                <i class="fa-solid fa-phone mr-2"></i> Hotline: 090 7458 567
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="trang-chu" class="relative min-h-[85vh] flex items-center bg-slate-950 overflow-hidden">
+        <div class="absolute inset-0 z-0 opacity-25 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1600');"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/90 to-transparent z-10"></div>
+
+        <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="max-w-3xl space-y-6">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-brand-gold/40 bg-brand-gold/10 text-brand-gold text-xs sm:text-sm font-semibold tracking-wide">
+                    <i class="fa-solid fa-award"></i> CÔNG TY TNHH THIẾT KẾ XÂY DỰNG C4 PLUS
+                </div>
+                
+                <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight">
+                    Giải Pháp Xây Dựng <br>
+                    <span class="gold-gradient-text">Kiến Tạo Nụ Cười Hạnh Phúc</span>
+                </h1>
+
+                <p class="text-base sm:text-lg text-slate-300 leading-relaxed">
+                    Công ty **C4 PLUS** chuyên tư vấn **Thiết kế Kiến trúc & Nội thất, Thi công Phần Thô, Xây nhà Trọn gói - Chìa khóa trao tay** tại TP. Hồ Chí Minh và các khu vực lân cận. Cam kết uy tín, chất lượng và thẩm mỹ vượt trội.
+                </p>
+
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-2">
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-circle-check text-brand-gold text-lg"></i>
+                        <span class="text-xs sm:text-sm text-slate-200">MST: 0315795198</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-circle-check text-brand-gold text-lg"></i>
+                        <span class="text-xs sm:text-sm text-slate-200">Miễn phí 100% Bản vẽ 3D</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-circle-check text-brand-gold text-lg"></i>
+                        <span class="text-xs sm:text-sm text-slate-200">Cam kết đúng tiến độ</span>
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                    <a href="#du-toan" class="px-8 py-4 rounded-xl gold-gradient-bg text-brand-navy font-bold text-base shadow-xl hover:scale-105 transition duration-300 text-center flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-calculator"></i> Dự Toán Chi Phí Xây Nhà
+                    </a>
+                    <a href="#lien-he" class="px-8 py-4 rounded-xl bg-slate-800/80 border border-slate-700 hover:border-brand-gold text-white font-semibold text-base transition duration-300 text-center hover:bg-slate-800">
+                        <i class="fa-solid fa-headset mr-2 text-brand-gold"></i> Liên Hệ Tư Vấn
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Stats Banner -->
+    <section class="bg-brand-navy border-y border-slate-800 py-10 relative z-20">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div>
+                <p class="text-3xl sm:text-4xl font-extrabold gold-gradient-text">100+</p>
+                <p class="text-xs sm:text-sm text-slate-400 mt-1 uppercase tracking-wider">Công trình bàn giao</p>
+            </div>
+            <div>
+                <p class="text-3xl sm:text-4xl font-extrabold gold-gradient-text">100%</p>
+                <p class="text-xs sm:text-sm text-slate-400 mt-1 uppercase tracking-wider">Chuẩn tiến độ & Kỹ thuật</p>
+            </div>
+            <div>
+                <p class="text-3xl sm:text-4xl font-extrabold gold-gradient-text">MST</p>
+                <p class="text-xs sm:text-sm text-slate-400 mt-1 uppercase tracking-wider">0315795198</p>
+            </div>
+            <div>
+                <p class="text-3xl sm:text-4xl font-extrabold gold-gradient-text">0 Đồng</p>
+                <p class="text-xs sm:text-sm text-slate-400 mt-1 uppercase tracking-wider">Phí thiết kế khi xây trọn gói</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="gioi-thieu" class="py-20 bg-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Left Image -->
+                <div class="relative">
+                    <div class="rounded-2xl overflow-hidden shadow-2xl border border-slate-800">
+                        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1000" alt="C4 PLUS Architecture" class="w-full h-[400px] sm:h-[500px] object-cover">
+                    </div>
+                    <div class="absolute -bottom-6 -right-6 hidden sm:block w-2/3 rounded-xl overflow-hidden border-4 border-slate-900 shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=800" alt="C4 PLUS Interior Design" class="w-full h-48 object-cover">
+                    </div>
+                    <div class="absolute top-6 left-6 bg-brand-navy/90 backdrop-blur-md p-4 rounded-xl border border-brand-gold/30">
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-shield-halved text-brand-gold text-2xl"></i>
+                            <div>
+                                <h4 class="text-sm font-bold text-white">C4 PLUS - HAPPY SMILE</h4>
+                                <p class="text-xs text-slate-400">Kiến tạo giá trị vững bền</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Description -->
+                <div class="space-y-6">
+                    <div>
+                        <span class="text-brand-gold text-sm font-bold tracking-widest uppercase">Về Chúng Tôi</span>
+                        <h2 class="text-2xl sm:text-4xl font-bold text-white mt-2">CÔNG TY TNHH THIẾT KẾ XÂY DỰNG C4 PLUS</h2>
+                    </div>
+
+                    <p class="text-slate-300 leading-relaxed">
+                        **C4 PLUS** là thương hiệu uy tín trong lĩnh vực tư vấn thiết kế kiến trúc, thiết kế nội thất và thi công xây dựng trọn gói các công trình nhà phố, biệt thự, căn hộ tại TP. Hồ Chí Minh và các tỉnh thành lân cận.
+                    </p>
+
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Với phương châm **"Happy Smile"**, chúng tôi không chỉ mang đến những công trình kiên cố, đạt tiêu chuẩn kỹ thuật cao mà còn tạo nên không gian sống thẩm mỹ, tiện nghi, đem lại niềm vui và sự hài lòng trọn vẹn cho từng gia chủ.
+                    </p>
+
+                    <div class="space-y-3 pt-2">
+                        <div class="flex items-start gap-3">
+                            <div class="p-2 rounded bg-brand-gold/10 text-brand-gold mt-1">
+                                <i class="fa-solid fa-house-chimney-window"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold">Địa Chỉ Đăng Ký Trụ Sở</h4>
+                                <p class="text-xs text-slate-400">54 Lê Vĩnh Huy, Khu phố 7, xã Tân An Hội, TP. Hồ Chí Minh.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="p-2 rounded bg-brand-gold/10 text-brand-gold mt-1">
+                                <i class="fa-solid fa-building-user"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold">Văn Phòng Làm Việc Chuyên Nghiệp</h4>
+                                <p class="text-xs text-slate-400">693 Kha Vạn Cân, phường Linh Xuân, TP. Hồ Chí Minh.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="p-2 rounded bg-brand-gold/10 text-brand-gold mt-1">
+                                <i class="fa-solid fa-clipboard-check"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold">Pháp Lý & Mã Số Thuế Rõ Ràng</h4>
+                                <p class="text-xs text-slate-400">MST: 0315795198 - Hợp đồng minh bạch, cam kết không phát sinh chi phí ngoài dự toán.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-4 border-t border-slate-800 flex flex-wrap items-center justify-between gap-4">
+                        <div>
+                            <p class="text-xs text-slate-400 uppercase">Hotline liên hệ trực tiếp</p>
+                            <a href="tel:0907458567" class="text-lg font-bold text-brand-gold hover:underline">090 7458 567</a>
+                        </div>
+                        <a href="https://www.facebook.com/xaydungc4plus" target="_blank" rel="noopener noreferrer" class="text-slate-300 hover:text-brand-gold font-medium text-sm flex items-center gap-2 bg-slate-800 px-4 py-2.5 rounded-lg border border-slate-700">
+                            <i class="fa-brands fa-facebook text-brand-gold text-base"></i> Ghé thăm Fanpage
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Grid -->
+    <section id="dich-vu" class="py-20 bg-slate-950 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-brand-gold text-sm font-bold tracking-widest uppercase">Giải Pháp Toàn Diện</span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-white mt-2">Dịch Vụ Của C4 PLUS</h2>
+                <p class="text-slate-400 text-sm mt-3">Đồng hành cùng bạn từ khâu phác thảo ý tưởng đến khi hoàn thiện bàn giao ngôi nhà mơ ước.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-slate-900 rounded-2xl p-6 border border-slate-800 hover:border-brand-gold/50 transition duration-300 group flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 rounded-xl gold-gradient-bg flex items-center justify-center text-brand-navy text-2xl font-bold mb-6 group-hover:scale-110 transition duration-300">
+                            <i class="fa-solid fa-pen-ruler"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3 group-hover:text-brand-gold transition">Thiết Kế Kiến Trúc & Nội Thất</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                            Tư vấn ý tưởng, phác thảo phối cảnh 3D ngoại thất, nội thất hiện đại và tối ưu công năng chuẩn phong thủy.
+                        </p>
+                    </div>
+                    <ul class="text-xs text-slate-300 space-y-2 mb-6 border-t border-slate-800 pt-4">
+                        <li><i class="fa-solid fa-angle-right text-brand-gold mr-1"></i> Hồ sơ kỹ thuật thi công chi tiết</li>
+                        <li><i class="fa-solid fa-angle-right text-brand-gold mr-1"></i> Phối cảnh 3D nội ngoại thất</li>
+                    </ul>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="bg-slate-900 rounded-2xl p-6 border border-slate-800 hover:border-brand-gold/50 transition duration-300 group flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 rounded-xl gold-gradient-bg flex items-center justify-center text-brand-navy text-2xl font-bold mb-6 group-hover:scale-110 transition duration-300">
+                            <i class="fa-solid fa-cubes-stacked"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3 group-hover:text-brand-gold transition">Thi Công Phần Thô</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                            Đảm bảo móng kiên cố, kết cấu bê tông cốt thép chuẩn tiêu chuẩn kỹ thuật, xây tô kỹ lưỡng và hệ thống ME âm tường.
+                        </p>
+                    </div>
+                    <ul class="text-xs text-slate-300 space-y-2 mb-6 border-t border-slate-800 pt-4">
+                        <li><i class="fa-solid fa-angle-right text-brand-gold mr-1"></i> Vật tư chất lượng cao</li>
+                        <li><i class="fa-solid fa-angle-right text-brand-gold mr-1"></i> Đội ngũ thợ lành nghề</li>
+                    </ul>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="bg-slate-900 rounded-2xl p-6 border border-brand-gold relative shadow-xl shadow-brand-gold/5 group flex flex-col justify-between transform lg:-translate-y-2">
+                    <span class="absolute -top-3 right-6 bg-brand-gold text-brand-navy text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">Được tin chọn nhất</span>
+                    <div>
+                        <div class="w-14 h-14 rounded-xl gold-gradient-bg flex items-center justify-center text-brand-navy text-2xl font-bold mb-6 group-hover:scale-110 transition duration-300">
+                            <i class="fa-solid fa-key"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3 gold-gradient-text">Xây Nhà Trọn Gói</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                            Dịch vụ "Chìa khóa trao tay". Quản lý trọn gói từ khâu bản vẽ, giấy phép, thi công thô đến hoàn thiện dọn vào ở.
+                        </p>
+                    </div>
+                    <ul class="text-xs text-slate-300 space-y-2 mb-6 border-t border-slate-800 pt-4">
+                        <li><i class="fa-solid fa-check text-brand-gold mr-1"></i> Miễn 100% Phí Thiết Kế</li>
+                        <li><i class="fa-solid fa-check text-brand-gold mr-1"></i> Minh bạch chi phí & vật tư</li>
+                    </ul>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="bg-slate-900 rounded-2xl p-6 border border-slate-800 hover:border-brand-gold/50 transition duration-300 group flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 rounded-xl gold-gradient-bg flex items-center justify-center text-brand-navy text-2xl font-bold mb-6 group-hover:scale-110 transition duration-300">
+                            <i class="fa-solid fa-screwdriver-wrench"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3 group-hover:text-brand-gold transition">Cải Tạo & Sửa Chữa</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                            Nâng cấp không gian sống, sửa chữa nâng tầng nhà phố, gia cố kết cấu và cải tạo mặt tiền kiến trúc hiện đại.
+                        </p>
+                    </div>
+                    <ul class="text-xs text-slate-300 space-y-2 mb-6 border-t border-slate-800 pt-4">
+                        <li><i class="fa-solid fa-angle-right text-brand-gold mr-1"></i> Khảo sát tận nơi miễn phí</li>
+                        <li><i class="fa-solid fa-angle-right text-brand-gold mr-1"></i> Tiến độ nhanh chóng</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Cost Estimator Tool -->
+    <section id="du-toan" class="py-20 bg-slate-900 border-t border-slate-800 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Title Content -->
+                <div class="lg:col-span-5 space-y-6">
+                    <span class="text-brand-gold text-sm font-bold tracking-widest uppercase">Bảng Tính Tự Động</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-white leading-tight">Dự Toán Chi Phí Xây Nhà Sơ Bộ</h2>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Nhập thông tin quy mô công trình để dự toán ngay chi phí xây dựng từ C4 PLUS chỉ trong vài giây.
+                    </p>
+                    <div class="p-4 rounded-xl bg-slate-800/60 border border-slate-700 text-xs text-slate-400 space-y-2">
+                        <p><i class="fa-solid fa-circle-info text-brand-gold mr-1"></i> * Lưu ý: Bảng giá thực tế sẽ phụ thuộc vào vị trí hẻm/mặt tiền, nền móng và chất liệu hoàn thiện do gia chủ lựa chọn.</p>
+                    </div>
+                    <div class="flex items-center gap-4 pt-2">
+                        <div class="w-12 h-12 rounded-full bg-brand-gold/10 flex items-center justify-center text-brand-gold text-xl">
+                            <i class="fa-solid fa-headset"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-slate-400">Tư vấn trực tiếp từ KTS C4 PLUS</p>
+                            <a href="tel:0907458567" class="text-lg font-bold text-brand-gold hover:underline">090 7458 567 (Hotline/Zalo)</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Calculator Card -->
+                <div class="lg:col-span-7 bg-slate-950 p-6 sm:p-8 rounded-2xl border border-brand-gold/30 shadow-2xl">
+                    <form id="calcForm" class="space-y-6">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <!-- Input Area m2 -->
+                            <div>
+                                <label class="block text-xs font-semibold uppercase text-slate-300 mb-2">Diện Tích Đất Xây Dựng (m²)</label>
+                                <div class="relative">
+                                    <input type="number" id="calcArea" value="80" min="20" max="1000" class="w-full bg-slate-900 border border-slate-700 rounded-lg py-3 px-4 text-white font-medium focus:outline-none focus:border-brand-gold gold-border-glow">
+                                    <span class="absolute right-4 top-3 text-slate-500 font-bold">m²</span>
+                                </div>
+                            </div>
+
+                            <!-- Input Floors -->
+                            <div>
+                                <label class="block text-xs font-semibold uppercase text-slate-300 mb-2">Số Tầng (Bao gồm trệt)</label>
+                                <select id="calcFloors" class="w-full bg-slate-900 border border-slate-700 rounded-lg py-3 px-4 text-white font-medium focus:outline-none focus:border-brand-gold">
+                                    <option value="1">1 Tầng (Nhà Cấp 4 / Mái Thái)</option>
+                                    <option value="2" selected>2 Tầng (1 Trệt 1 Lầu)</option>
+                                    <option value="3">3 Tầng (1 Trệt 2 Lầu)</option>
+                                    <option value="4">4 Tầng (1 Trệt 3 Lầu)</option>
+                                    <option value="5">5 Tầng trở lên</option>
+                                </select>
+                            </div>
+
+                            <!-- Package Selection -->
+                            <div>
+                                <label class="block text-xs font-semibold uppercase text-slate-300 mb-2">Gói Dịch Vụ Xây Dựng</label>
+                                <select id="calcPackage" class="w-full bg-slate-900 border border-slate-700 rounded-lg py-3 px-4 text-white font-medium focus:outline-none focus:border-brand-gold">
+                                    <option value="tho">Thi công Phần Thô & Nhân Công (3.600.000đ/m²)</option>
+                                    <option value="trongoi_tieuchuan" selected>Xây Trọn Gói - Tiêu Chuẩn (5.800.000đ/m²)</option>
+                                    <option value="trongoi_caocap">Xây Trọn Gói - Cao Cấp (6.800.000đ/m²)</option>
+                                </select>
+                            </div>
+
+                            <!-- Roof option -->
+                            <div>
+                                <label class="block text-xs font-semibold uppercase text-slate-300 mb-2">Loại Mái / Sân Thượng</label>
+                                <select id="calcRoof" class="w-full bg-slate-900 border border-slate-700 rounded-lg py-3 px-4 text-white font-medium focus:outline-none focus:border-brand-gold">
+                                    <option value="0.3">Mái Tôn (Tính 30% DT)</option>
+                                    <option value="0.5" selected>Mái BTCT / Sân Thượng (Tính 50% DT)</option>
+                                    <option value="0.7">Mái Thái / Mái Ngói (Tính 70% DT)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Result Display Box -->
+                        <div class="bg-slate-900/90 border border-slate-800 rounded-xl p-6 text-center space-y-3">
+                            <p class="text-xs uppercase tracking-widest text-slate-400">Tổng Chi Phí Dự Kiến Sơ Bộ</p>
+                            <p id="calcTotalDisplay" class="text-3xl sm:text-4xl font-extrabold gold-gradient-text">1.250.000.000 VNĐ</p>
+                            <p id="calcAreaDetail" class="text-xs text-slate-400">Tổng diện tích xây dựng quy đổi: ~ 200 m²</p>
+                        </div>
+
+                        <div class="text-center">
+                            <a href="#lien-he" class="w-full sm:w-auto inline-block px-8 py-3.5 rounded-xl gold-gradient-bg text-brand-navy font-bold text-sm shadow-lg hover:brightness-110 transition duration-300">
+                                Nhận Bản Vẽ Chi Tiết & Báo Giá Chính Xác
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Gallery -->
+    <section id="du-an" class="py-20 bg-slate-950 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                <div>
+                    <span class="text-brand-gold text-sm font-bold tracking-widest uppercase">Dự Án Đã Thực Hiện</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-white mt-2">Công Trình Tiêu Biểu Từ C4 PLUS</h2>
+                </div>
+                <!-- Filter Tabs -->
+                <div class="flex flex-wrap gap-2 mt-6 md:mt-0">
+                    <button class="project-filter-btn px-4 py-2 rounded-lg bg-brand-gold text-brand-navy text-xs font-bold transition" data-filter="all">Tất Cả</button>
+                    <button class="project-filter-btn px-4 py-2 rounded-lg bg-slate-900 border border-slate-800 hover:border-brand-gold text-slate-300 text-xs font-bold transition" data-filter="nhapho">Nhà Phố</button>
+                    <button class="project-filter-btn px-4 py-2 rounded-lg bg-slate-900 border border-slate-800 hover:border-brand-gold text-slate-300 text-xs font-bold transition" data-filter="bietthu">Biệt Thự</button>
+                    <button class="project-filter-btn px-4 py-2 rounded-lg bg-slate-900 border border-slate-800 hover:border-brand-gold text-slate-300 text-xs font-bold transition" data-filter="noithat">Nội Thất</button>
+                </div>
+            </div>
+
+            <!-- Grid Container -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project Item 1 -->
+                <div class="project-card group rounded-2xl overflow-hidden bg-slate-900 border border-slate-800 hover:border-brand-gold/50 transition duration-300" data-category="nhapho">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800" alt="Nhà Phố Modern C4 PLUS" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-80"></div>
+                        <span class="absolute top-4 left-4 bg-brand-navy/80 text-brand-gold text-[10px] font-bold px-3 py-1 rounded-full uppercase border border-brand-gold/30">Nhà Phố Hiện Đại</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-white group-hover:text-brand-gold transition">Nhà Phố 3 Tầng Sang Trọng</h3>
+                        <p class="text-xs text-slate-400 mt-1"><i class="fa-solid fa-location-dot text-brand-gold mr-1"></i> Linh Xuân, TP. Hồ Chí Minh</p>
+                        <div class="mt-4 pt-4 border-t border-slate-800 flex justify-between text-xs text-slate-400">
+                            <span>Quy mô: 1 Trệt 2 Lầu</span>
+                            <span class="text-brand-gold font-semibold">C4 PLUS Trọn Gói</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Item 2 -->
+                <div class="project-card group rounded-2xl overflow-hidden bg-slate-900 border border-slate-800 hover:border-brand-gold/50 transition duration-300" data-category="bietthu">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=800" alt="Biệt Thự Tân Cổ Điển C4 PLUS" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-80"></div>
+                        <span class="absolute top-4 left-4 bg-brand-navy/80 text-brand-gold text-[10px] font-bold px-3 py-1 rounded-full uppercase border border-brand-gold/30">Biệt Thự Vườn</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-white group-hover:text-brand-gold transition">Biệt Thự Mái Thái Đẳng Cấp</h3>
+                        <p class="text-xs text-slate-400 mt-1"><i class="fa-solid fa-location-dot text-brand-gold mr-1"></i> Tân An Hội, TP. Hồ Chí Minh</p>
+                        <div class="mt-4 pt-4 border-t border-slate-800 flex justify-between text-xs text-slate-400">
+                            <span>Quy mô: 2 Tầng + Sân vườn</span>
+                            <span class="text-brand-gold font-semibold">Thiết kế & Thi công</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Item 3 -->
+                <div class="project-card group rounded-2xl overflow-hidden bg-slate-900 border border-slate-800 hover:border-brand-gold/50 transition duration-300" data-category="noithat">
+                    <div class="relative overflow-hidden h-64">
+                        <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=800" alt="Nội Thất C4 PLUS" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-80"></div>
+                        <span class="absolute top-4 left-4 bg-brand-navy/80 text-brand-gold text-[10px] font-bold px-3 py-1 rounded-full uppercase border border-brand-gold/30">Thiết Kế Nội Thất</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-white group-hover:text-brand-gold transition">Nội Thất Căn Hộ Cao Cấp</h3>
+                        <p class="text-xs text-slate-400 mt-1"><i class="fa-solid fa-location-dot text-brand-gold mr-1"></i> TP. Hồ Chí Minh</p>
+                        <div class="mt-4 pt-4 border-t border-slate-800 flex justify-between text-xs text-slate-400">
+                            <span>Phong cách: Tối giản & Ấm cúng</span>
+                            <span class="text-brand-gold font-semibold">Hoàn thiện 2026</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Map Section -->
+    <section id="lien-he" class="py-20 bg-slate-900 border-t border-slate-800 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                
+                <!-- Contact Info Left -->
+                <div class="lg:col-span-5 space-y-8">
+                    <div>
+                        <span class="text-brand-gold text-sm font-bold tracking-widest uppercase">Thông Tin Liên Hệ</span>
+                        <h2 class="text-3xl sm:text-4xl font-bold text-white mt-2">Liên Hệ Với C4 PLUS</h2>
+                        <p class="text-slate-400 text-sm mt-3">Quý khách có nhu cầu tư vấn thiết kế và báo giá thi công xây dựng, xin vui lòng liên hệ trực tiếp với chúng tôi qua thông tin bên dưới:</p>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 rounded-lg bg-slate-950 border border-slate-800 flex items-center justify-center text-brand-gold text-xl shrink-0 mt-1">
+                                <i class="fa-solid fa-building"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold text-sm">Địa chỉ trụ sở:</h4>
+                                <p class="text-slate-400 text-sm mt-1 leading-relaxed">54 Lê Vĩnh Huy, Khu phố 7, xã Tân An Hội, TP. Hồ Chí Minh</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 rounded-lg bg-slate-950 border border-slate-800 flex items-center justify-center text-brand-gold text-xl shrink-0 mt-1">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold text-sm">Văn phòng làm việc:</h4>
+                                <p class="text-slate-400 text-sm mt-1 leading-relaxed">693 Kha Vạn Cân, phường Linh Xuân, TP. Hồ Chí Minh</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 rounded-lg bg-slate-950 border border-slate-800 flex items-center justify-center text-brand-gold text-xl shrink-0 mt-1">
+                                <i class="fa-solid fa-file-signature"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold text-sm">Mã số thuế (MST):</h4>
+                                <p class="text-brand-gold text-sm font-bold mt-1">0315795198</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 rounded-lg bg-slate-950 border border-slate-800 flex items-center justify-center text-brand-gold text-xl shrink-0 mt-1">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold text-sm">Số điện thoại liên hệ:</h4>
+                                <a href="tel:0907458567" class="text-brand-gold text-lg font-bold mt-1 block hover:underline">090 7458 567</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 rounded-lg bg-slate-950 border border-slate-800 flex items-center justify-center text-brand-gold text-xl shrink-0 mt-1">
+                                <i class="fa-brands fa-facebook"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold text-sm">Fanpage Facebook:</h4>
+                                <a href="https://www.facebook.com/xaydungc4plus" target="_blank" rel="noopener noreferrer" class="text-slate-300 hover:text-brand-gold text-sm mt-1 block break-all hover:underline">
+                                    https://www.facebook.com/xaydungc4plus
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form Right -->
+                <div class="lg:col-span-7 bg-slate-950 p-8 rounded-2xl border border-slate-800 shadow-2xl">
+                    <h3 class="text-2xl font-bold text-white mb-2">Đăng Ký Tư Vấn Trực Tuyến</h3>
+                    <p class="text-slate-400 text-xs mb-6">Hãy để lại thông tin, đội ngũ kiến trúc sư C4 PLUS sẽ gọi tư vấn miễn phí cho bạn.</p>
+                    
+                    <form id="contactForm" class="space-y-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-300 uppercase mb-2">Họ và tên *</label>
+                                <input type="text" required placeholder="Nguyễn Văn A" class="w-full bg-slate-900 border border-slate-800 rounded-lg py-3 px-4 text-white text-sm focus:outline-none focus:border-brand-gold">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-300 uppercase mb-2">Số điện thoại *</label>
+                                <input type="tel" required placeholder="0907 458 567" class="w-full bg-slate-900 border border-slate-800 rounded-lg py-3 px-4 text-white text-sm focus:outline-none focus:border-brand-gold">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-300 uppercase mb-2">Địa điểm xây dựng</label>
+                                <input type="text" placeholder="Thủ Đức, Củ Chi, Linh Xuân..." class="w-full bg-slate-900 border border-slate-800 rounded-lg py-3 px-4 text-white text-sm focus:outline-none focus:border-brand-gold">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-300 uppercase mb-2">Nhu cầu xây dựng</label>
+                                <select class="w-full bg-slate-900 border border-slate-800 rounded-lg py-3 px-4 text-white text-sm focus:outline-none focus:border-brand-gold">
+                                    <option>Xây Nhà Phố Trọn Gói</option>
+                                    <option>Thi Công Phần Thô</option>
+                                    <option>Biệt Thự Sang Trọng</option>
+                                    <option>Cải Tạo & Sửa Chữa</option>
+                                    <option>Thiết Kế Nội Thất</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 uppercase mb-2">Ghi chú chi tiết (Diện tích, số tầng, ngân sách...)</label>
+                            <textarea rows="4" placeholder="Ví dụ: Tôi muốn tư vấn xây nhà phố diện tích 5x16m, 1 trệt 2 lầu..." class="w-full bg-slate-900 border border-slate-800 rounded-lg py-3 px-4 text-white text-sm focus:outline-none focus:border-brand-gold"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-4 rounded-xl gold-gradient-bg text-brand-navy font-bold text-base shadow-xl hover:brightness-110 transition duration-300 uppercase tracking-wider">
+                            Gửi Yêu Cầu Cho C4 PLUS
+                        </button>
+                    </form>
+
+                    <!-- Success Message Box -->
+                    <div id="formSuccess" class="hidden mt-4 p-4 rounded-lg bg-emerald-950/80 border border-emerald-500/50 text-emerald-300 text-sm text-center">
+                        <i class="fa-solid fa-circle-check mr-2"></i> Cảm ơn bạn! Thông tin đã được gửi tới C4 PLUS. Chúng tôi sẽ liên hệ tư vấn ngay!
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-navy border-t border-slate-800 py-12 text-slate-400 text-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                
+                <!-- Column 1 (Logo & Enterprise Profile) -->
+                <div class="space-y-4 md:col-span-2">
+                    <a href="#" class="flex items-center space-x-3 group inline-flex">
+                        <div class="w-10 h-10 flex items-center justify-center">
+                            <svg class="w-full h-full text-brand-gold" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="50,12 18,32 50,52 82,32" />
+                                <polyline points="18,32 18,52 50,72 82,52 82,32" />
+                                <line x1="50" y1="52" x2="50" y2="72" />
+                                <polygon points="50,40 22,60 50,80 78,60" stroke-opacity="0.6" stroke-width="2.5" />
+                                <line x1="18" y1="52" x2="50" y2="88" stroke-width="3" />
+                                <line x1="82" y1="52" x2="50" y2="88" stroke-width="3" />
+                                <line x1="50" y1="72" x2="50" y2="88" stroke-width="3" />
+                            </svg>
+                        </div>
+                        <div class="flex flex-col justify-center">
+                            <span class="text-xl font-light tracking-wide text-white leading-none">C4 <span class="font-normal gold-gradient-text">PLUS</span></span>
+                            <div class="flex items-center space-x-1 mt-1">
+                                <span class="text-[8px] tracking-[0.2em] text-slate-400 uppercase font-light">HAPPY SMILE</span>
+                                <span class="w-5 h-[1px] bg-brand-gold inline-block"></span>
+                            </div>
+                        </div>
+                    </a>
+                    <p class="text-xs text-slate-400 leading-relaxed max-w-md">
+                        <strong>CÔNG TY TNHH THIẾT KẾ XÂY DỰNG C4 PLUS</strong> - Chuyên nghiệp trong lĩnh vực thiết kế kiến trúc, thiết kế nội thất và thi công trọn gói nhà phố, biệt thự, công trình dân dụng.
+                    </p>
+                    <div class="space-y-1 text-xs text-slate-400">
+                        <p><strong>Mã số thuế:</strong> 0315795198</p>
+                        <p><strong>Trụ sở:</strong> 54 Lê Vĩnh Huy, Khu phố 7, xã Tân An Hội, TP.HCM</p>
+                        <p><strong>VP làm việc:</strong> 693 Kha Vạn Cân, phường Linh Xuân, TP. Hồ Chí Minh</p>
+                    </div>
+                </div>
+
+                <!-- Column 2 -->
+                <div class="space-y-3">
+                    <h4 class="text-white font-bold text-base border-b border-slate-800 pb-2">Liên Kết Nhanh</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#gioi-thieu" class="hover:text-brand-gold transition">Giới thiệu công ty</a></li>
+                        <li><a href="#dich-vu" class="hover:text-brand-gold transition">Dịch vụ xây nhà trọn gói</a></li>
+                        <li><a href="#du-toan" class="hover:text-brand-gold transition">Tính chi phí xây dựng</a></li>
+                        <li><a href="#du-an" class="hover:text-brand-gold transition">Dự án tiêu biểu</a></li>
+                        <li><a href="#lien-he" class="hover:text-brand-gold transition">Liên hệ & Báo giá</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3 -->
+                <div class="space-y-3">
+                    <h4 class="text-white font-bold text-base border-b border-slate-800 pb-2">Liên Hệ Trực Tiếp</h4>
+                    <p class="text-xs">Tư vấn thiết kế & báo giá 24/7:</p>
+                    <div class="space-y-2">
+                        <a href="tel:0907458567" class="block font-bold text-brand-gold text-lg hover:underline">
+                            <i class="fa-solid fa-phone mr-2"></i>090 7458 567
+                        </a>
+                        <a href="https://www.facebook.com/xaydungc4plus" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs text-slate-300 hover:text-brand-gold pt-2">
+                            <i class="fa-brands fa-facebook text-brand-gold text-sm"></i> Facebook Fanpage
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="border-t border-slate-800 pt-6 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-500 gap-4">
+                <p>© 2026 CÔNG TY TNHH THIẾT KẾ XÂY DỰNG C4 PLUS. All rights reserved.</p>
+                <div class="flex space-x-4 text-base">
+                    <a href="https://www.facebook.com/xaydungc4plus" target="_blank" rel="noopener noreferrer" class="hover:text-brand-gold"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="tel:0907458567" class="hover:text-brand-gold"><i class="fa-solid fa-phone"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Quick Call / Zalo Buttons -->
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
+        <a href="https://www.facebook.com/xaydungc4plus" target="_blank" rel="noopener noreferrer" class="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition duration-300" title="Fanpage Facebook">
+            <i class="fa-brands fa-facebook text-xl"></i>
+        </a>
+        <a href="tel:0907458567" class="w-12 h-12 gold-gradient-bg text-brand-navy rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition duration-300 animate-bounce" title="Gọi ngay 090 7458 567">
+            <i class="fa-solid fa-phone text-xl"></i>
+        </a>
+    </div>
+
+    <!-- JavaScript Interactive Logic -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on click link
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Interactive Cost Calculator
+        const calcArea = document.getElementById('calcArea');
+        const calcFloors = document.getElementById('calcFloors');
+        const calcPackage = document.getElementById('calcPackage');
+        const calcRoof = document.getElementById('calcRoof');
+        const calcTotalDisplay = document.getElementById('calcTotalDisplay');
+        const calcAreaDetail = document.getElementById('calcAreaDetail');
+
+        function calculateCost() {
+            const area = parseFloat(calcArea.value) || 0;
+            const floors = parseInt(calcFloors.value) || 1;
+            const roofMultiplier = parseFloat(calcRoof.value) || 0.5;
+            const packageType = calcPackage.value;
+
+            // Price unit per m2
+            let unitPrice = 5800000;
+            if (packageType === 'tho') unitPrice = 3600000;
+            if (packageType === 'trongoi_caocap') unitPrice = 6800000;
+
+            // Formula: Foundation (50%) + Floors * Area + Roof (multiplier * Area)
+            const foundationArea = area * 0.5;
+            const floorsArea = area * floors;
+            const roofArea = area * roofMultiplier;
+            const totalAreaConverted = foundationArea + floorsArea + roofArea;
+
+            const totalCost = totalAreaConverted * unitPrice;
+
+            // Format VND
+            const formattedCost = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(totalCost);
+
+            calcTotalDisplay.innerText = formattedCost;
+            calcAreaDetail.innerText = `Tổng diện tích quy đổi dự toán: ~ ${Math.round(totalAreaConverted)} m² (Móng: ${Math.round(foundationArea)}m², Các tầng: ${Math.round(floorsArea)}m², Mái: ${Math.round(roofArea)}m²)`;
+        }
+
+        // Attach listeners
+        [calcArea, calcFloors, calcPackage, calcRoof].forEach(element => {
+            element.addEventListener('input', calculateCost);
+            element.addEventListener('change', calculateCost);
+        });
+
+        // Run calculation on load
+        calculateCost();
+
+        // Project Filters
+        const filterBtns = document.querySelectorAll('.project-filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => {
+                    b.classList.remove('bg-brand-gold', 'text-brand-navy');
+                    b.classList.add('bg-slate-900', 'text-slate-300');
+                });
+                btn.classList.remove('bg-slate-900', 'text-slate-300');
+                btn.classList.add('bg-brand-gold', 'text-brand-navy');
+
+                const filter = btn.getAttribute('data-filter');
+
+                projectCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Form Submit Simulation
+        const contactForm = document.getElementById('contactForm');
+        const formSuccess = document.getElementById('formSuccess');
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            formSuccess.classList.remove('hidden');
+            contactForm.reset();
+            setTimeout(() => {
+                formSuccess.classList.add('hidden');
+            }, 6000);
+        });
+    </script>
+</body>
+</html>
